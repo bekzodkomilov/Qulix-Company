@@ -1,0 +1,48 @@
+@model List<Employee>
+@{
+    ViewData["Title"] = "Employees";
+}
+
+<div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-primary">Employee List</h2>
+		</div>
+        <div class="col-6 text-end">
+            <a asp-controller="Employee" asp-action="Create" class="btn btn-primary">
+               <i class="bi bi-plus-circle"></i> &nbsp; Create New Employee
+			</a>
+		</div>
+	</div>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Fullname</th>
+            <th scope="col">Signed Date</th>
+            <th scope="col">Position</th>
+            <th scope="col">Company</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var Employee in Model)
+        {
+            <tr>
+                <td>@Employee.Id</td>
+                <td>@Employee.FirstName @Employee.LastName @Employee.MiddleName</td>
+                <td>@Employee.SignedDate</td>
+                <td>@Employee.Position.ToString()</td>
+                <td>@Employee.Company.Name</td>
+                <td>
+                    <a asp-controller="Employee" asp-action="Edit" asp-route-id="@Employee.Id"
+                    class="btn btn-primary mx-2"> <i class="bi bi-pencil-square"></i> Edit</a>
+                    
+                    <form method="post" asp-action="Delete" asp-route-id="@Employee.Id" asp-controller="Employee">
+                        <button type="submit" class="btn btn-danger mx-2"> <i class="bi bi-trash-fill"></i> Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table> 

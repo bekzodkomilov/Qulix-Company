@@ -1,0 +1,62 @@
+@model Employee
+
+<form method="post" asp-controller="Employee" asp-action="Edit">
+	<div class="border p-3 mt-4">
+		<div class="row pb-2">
+			<h2 class="text-primary">Edit Employee</h2>
+			<hr />
+		</div>
+		<div class="form-group row">
+        <label for="inputEmail3" class="col-sm-2 col-form-label">First Name</label>
+        <div class="col-sm-10">
+            <input asp-for="FirstName" type="text" class="form-control" id="inputName" placeholder="First Name">
+        </div>
+    </div>
+        <div class="form-group row">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">Last Name</label>
+            <div class="col-sm-10">
+                <input asp-for="LastName" type="text" class="form-control" id="inputName" placeholder="Last Name">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">Middle Name</label>
+            <div class="col-sm-10">
+                <input asp-for="MiddleName" type="text" class="form-control" id="inputName" placeholder="Middle Name">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">Company ID</label>
+            <div class="col-sm-10">
+                <input asp-for="CompanyId" type="text" class="form-control" id="inputName" placeholder="Company ID">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">Position</label>
+            <div class="col-sm-10">
+                <select class="form-select" asp-for="Position" aria-label="Default select example">
+                    @foreach (var position in Enum.GetValues(typeof(EPosition)))
+                    {
+                        <option value="@position">@position.ToString()</option>
+                    }
+                </select>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">Signed Date</label>
+            <div class="col-sm-10">
+                <input asp-for="SignedDate" type="text" class="form-control" id="inputName" value="@Model.SignedDate">
+            </div>
+        </div>
+        <br/>
+        <button type="submit" class="btn btn-primary" style="margin-left: 0%">Update</button>
+        <a asp-controller="Company" asp-action="Index" class="btn btn-secondary" style="margin-left: 3%">Back to Company
+            List</a>
+        </div>
+	</div>
+</form>
+
+@section Scripts{
+	@{
+		<partial name="_ValidationScriptsPartial" />
+	}
+}
