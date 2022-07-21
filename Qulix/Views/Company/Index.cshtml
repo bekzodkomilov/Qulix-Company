@@ -33,11 +33,12 @@
                 <td>@Company.Employees.Count</td>
                 <td>@Company.OrganizationalForm</td>
                 <td>
-                    <a asp-controller="Company" asp-action="CompanyEdit" asp-route-id="@Company.Id"
-                    class="btn btn-primary mx-2"> <i class="bi bi-pencil-square"></i> Edit</a>
+                    <form method="post" asp-controller="Company" asp-action="CompanyEdit" asp-route-id="@Company.Id"> 
+                       <button type="submit" style="width: 73px;" class="btn btn-primary mx-5"> <i class="bi bi-pencil-square"></i> Edit</button> 
+                    </form>
 
                     <form method="post" asp-action="CompanyDelete" asp-route-id="@Company.Id" asp-controller="Company">
-                        <button type="submit" class="btn btn-danger mx-2"> <i class="bi bi-trash-fill"></i> Delete</button>
+                        <button type="submit" class="btn btn-danger mx-5"> <i class="bi bi-trash-fill"></i> Delete</button>
                     </form>
                 </td>
             </tr>

@@ -35,11 +35,12 @@
                 <td>@Employee.Position.ToString()</td>
                 <td>@Employee.Company.Name</td>
                 <td>
-                    <a asp-controller="Employee" asp-action="Edit" asp-route-id="@Employee.Id"
-                    class="btn btn-primary mx-2"> <i class="bi bi-pencil-square"></i> Edit</a>
+                    <form method="post" asp-controller="Employee" asp-action="Edit" asp-route-id="@Employee.Id">
+                        <button type="submit" style="width: 73px;" class="btn btn-primary mx-5"> <i class="bi bi-pencil-square"></i> Edit</button>
+                    </form>
                     
                     <form method="post" asp-action="Delete" asp-route-id="@Employee.Id" asp-controller="Employee">
-                        <button type="submit" class="btn btn-danger mx-2"> <i class="bi bi-trash-fill"></i> Delete</button>
+                        <button type="submit" class="btn btn-danger mx-5"> <i class="bi bi-trash-fill"></i> Delete</button>
                     </form>
                 </td>
             </tr>

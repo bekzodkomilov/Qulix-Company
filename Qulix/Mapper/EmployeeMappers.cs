@@ -13,7 +13,7 @@ public static class EmployeeMappers
             LastName = model.LastName,
             MiddleName = model.MiddleName,
             SignedDate = model.SignedDate,
-            Position = EPosition.None,
+            Position = model.Position,
             CompanyId = model.CompanyId
         };
 
@@ -24,6 +24,6 @@ public static class EmployeeMappers
             LastName = employee.LastName,
             MiddleName = employee.MiddleName,
             SignedDate = employee.SignedDate,
-            Position = default(EPosition)
+            Position = employee.Position
         };
 }
